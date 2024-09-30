@@ -59,7 +59,10 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Build with NPM
+        run: |
+          npm run build:hugo   
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
