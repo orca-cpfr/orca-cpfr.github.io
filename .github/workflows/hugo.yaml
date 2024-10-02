@@ -65,8 +65,12 @@ jobs:
         working-directory: dashboard
         run: |
           npm run build:hugo
+      - name: Copy dashboard
+        run: |
+          cp -r dashboard/public public/dashboard
       - name: Copy landing pages
-        run: cp ./landing-page/*.html public
+        run: |
+          cp landing-page/*.html public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

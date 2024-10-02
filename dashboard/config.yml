@@ -28,4 +28,4 @@ enableRobotsTXT:        true
 metaDataFormat:         "yaml"
 disableKinds:           ["404", "taxonomy", "taxonomyTerm", "RSS"]
 
-publishDir:             "../public/dashboard"
+publishDir:             "public"
