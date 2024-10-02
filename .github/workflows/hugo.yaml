@@ -29,8 +29,11 @@ defaults:
 
 jobs:
   # Build job
-  build:
+  build-dashboard:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dashboard
     env:
       HUGO_VERSION: 0.134.2
     steps:
@@ -50,7 +53,7 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Build with Hugo
+      - name: Dashboard - Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
@@ -60,9 +63,14 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Build with NPM
+      - name: Dashboard - Build with NPM
         run: |
-          npm run build:hugo   
+          npm run build:hugo
+  build-landing-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy landing pages
+        run: cp ./landing-page/*.html public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
