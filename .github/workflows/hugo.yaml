@@ -69,14 +69,12 @@ jobs:
         working-directory: landing-page
         run: |
           npm run copy
-      - name: Create public folder
-        run: mkdir public
+      - name: Copy landing pages
+        run: |
+          cp -r landing-page/public .
       - name: Copy dashboard
         run: |
           cp -r dashboard/public public/dashboard
-      - name: Copy landing pages
-        run: |
-          cp landing-page/public public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
