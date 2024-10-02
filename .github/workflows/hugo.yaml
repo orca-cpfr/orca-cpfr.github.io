@@ -65,6 +65,8 @@ jobs:
         working-directory: dashboard
         run: |
           npm run build:hugo
+      - name: Create public folder
+        run: mkdir public
       - name: Copy dashboard
         run: |
           cp -r dashboard/public public/dashboard
