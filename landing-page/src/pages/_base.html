@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+ <html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Landing Page</title>
+    <meta name="description" content="Get started with a free landing page built with Tailwind CSS and the Flowbite Blocks system.">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        {{ template "_nav" .}}
+    </header>
+
+    {{ template "main" .}}
+
+    <footer class="p-4 bg-gray-50 sm:p-6 dark:bg-gray-800">
+        {{ template "_footer" .}}
+    </footer>
+    
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+</body>
+</html>

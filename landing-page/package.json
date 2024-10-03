@@ -1,38 +1,15 @@
 {
-  "name": "tailwind-css-landing-page",
-  "version": "1.0.0",
-  "description": "A simple landing page built with Tailwind CSS and Flowbite",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "copy": "mkdir -p public & cp *.html output.css public  ",
-    "watch-css": "npx postcss input.css -o output.css -w"
+    "watch-css": "npx postcss src/css/input.css -o public/output.css -w",
+    "build-css": "npx postcss src/css/input.css -o public/output.css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/themesberg/tailwind-css-landing-page.git"
-  },
-  "keywords": [
-    "tailwind",
-    "css",
-    "flowbite",
-    "landing",
-    "page",
-    "css",
-    "html",
-    "responsive"
-  ],
-  "author": "https://github.com/themesberg/",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/themesberg/tailwind-css-landing-page/issues"
-  },
-  "homepage": "https://github.com/themesberg/tailwind-css-landing-page#readme",
   "dependencies": {
     "flowbite": "^1.4.7"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.1.4"
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.13"
   }
 }
