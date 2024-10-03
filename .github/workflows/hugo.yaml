@@ -73,6 +73,10 @@ jobs:
         working-directory: landing-page
         run: |
           go run render.go
+      - name: Landing-Page - NPM Install
+        working-directory: landing-page
+        run: |
+          npm install
       - name: Landing-Page - Build css
         working-directory: landing-page
         run: |
