@@ -73,6 +73,10 @@ jobs:
         working-directory: landing-page
         run: |
           go run render.go
+      - name: Landing-Page - Build css
+        working-directory: landing-page
+        run: |
+          npm run build-css
       - name: Copy landing pages
         run: |
           cp -r landing-page/public .

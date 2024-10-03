@@ -21,6 +21,8 @@ func main() {
 	var m map[string][]string = make(map[string][]string)
 	WalkTemplates(m, Path, []string{})
 
+	os.Mkdir(OutDir, os.ModePerm)
+
 	for k, v := range m {
 		file, _ := os.Create(filepath.Join(OutDir, k))
 		defer file.Close()
