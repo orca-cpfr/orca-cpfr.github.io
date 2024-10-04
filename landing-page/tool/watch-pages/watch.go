@@ -30,7 +30,7 @@ func main() {
 					return
 				}
 
-				if !build && event.Has(fsnotify.Write) {
+				if !build && !event.Has(fsnotify.Chmod) {
 					build = true
 					fmt.Println("build pages..")
 					err := app.Render()
