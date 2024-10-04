@@ -72,7 +72,7 @@ jobs:
       - name: Landing-Page - Render
         working-directory: landing-page
         run: |
-          go run render.go
+          go run tool/build-page/*.go
       - name: Landing-Page - NPM Install
         working-directory: landing-page
         run: |

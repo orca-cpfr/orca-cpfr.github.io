@@ -1,4 +1,4 @@
-package main
+package app
 
 import (
 	"os"
@@ -17,19 +17,22 @@ var (
 	}
 )
 
-func main() {
+func Render() error {
 	var m map[string][]string = make(map[string][]string)
 	WalkTemplates(m, Path, []string{})
 
 	os.Mkdir(OutDir, os.ModePerm)
 
 	for k, v := range m {
-		file, _ := os.Create(filepath.Join(OutDir, k))
+		file, err := os.Create(filepath.Join(OutDir, k))
+		if err != nil {
+			return err
+		}
 		defer file.Close()
-
 		tmpl := template.Must(template.ParseFiles(v...))
 		tmpl.Execute(file, Data)
 	}
+	return nil
 }
 
 func WalkTemplates(m map[string][]string, parent string, list []string) {
