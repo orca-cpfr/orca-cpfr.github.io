@@ -1,13 +1,19 @@
 {
   "scripts": {
+    "start": "concurrently \"npm:watch-css\" \"npm:watch-page\" \"npm:serve\"",
+    "build": "concurrently \"npm:build-css\" \"npm:build-page\"",
+    "serve": "npx serve public",
     "watch-css": "npx postcss src/css/input.css -o public/output.css -w",
-    "build-css": "npx postcss src/css/input.css -o public/output.css"
+    "build-css": "npx postcss src/css/input.css -o public/output.css",
+    "watch-page": "go run ./tool/watch-pages/*.go",
+    "build-page": "go run ./tool/build-pages/*.go"
   },
   "dependencies": {
     "flowbite": "^1.4.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.0.1",
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0",
     "tailwindcss": "^3.4.13"
