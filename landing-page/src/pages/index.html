@@ -23,8 +23,7 @@
             </a>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="https://cdn.prod.website-files.com/64ccd6239abfeec743815b28/64e3cad5a1ae0544c45151ab_6453d960dae35a41cb00fd00_cumulio-dashboard-mockup.png"
-                alt="mockup">
+            <img src="images/dashboard.png" alt="mockup">
         </div>
     </div>
 </section>
@@ -38,30 +37,52 @@
             <!-- <p class="text-gray-500 sm:text-xl dark:text-gray-400">Here at Flowbite we focus on markets where
                 technology, innovation, and capital can unlock long-term value and drive economic growth.</p> -->
         </div>
-        <div class="grid grid-cols-3 gap-4">
+        <div class="lg:grid lg:grid-cols-3 gap-4">
+            {{range $item := .Problems}}
             <div class="flex p-2">
                 <div>
-                    <img class="max-w-24" src="images/icon_bad_data.png" alt="">
+                    <img class="max-w-24" src="{{$item.Key}}" alt="">
                 </div>
                 <div class="text-xl lg:text-2xl my-auto mx-4">
-                    Scattered and Unclean Data
+                    {{$item.Value}}
                 </div>
             </div>
-            <div class="flex p-2">
-                <div>
-                    <img class="max-w-24" src="images/icon_inaccurate.png" alt="">
-                </div>
-                <div class="text-xl lg:text-2xl my-auto mx-4">
-                    Inaccuracy of Planning / Forecasting
-                </div>
+            {{end}}
+        </div>
+    </div>
+</section>
+
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div class="mb-8 max-w-screen-md lg:mb-16">
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+                Revolutioning CPFR Implementation
+            </h2>
+        </div>
+        <div class="lg:grid lg:grid-cols-2 gap-4">
+            <div class="">
+                <img class="max-w-80 mx-auto" src="images/product_overview.png" alt="">
             </div>
-            <div class="flex p-2">
-                <div>
-                    <img class="max-w-24" src="images/icon_disaster.png" alt="">
-                </div>
-                <div class="text-xl lg:text-2xl my-auto mx-4">
-                    Lack of mitigation in real-life operational
-                </div>
+            <div class="">
+                <ul class="space-y-4 text-2xl mt-16">
+                    {{range $val := .Features}}
+                    <li class="flex items-center">
+                        <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="11" />
+                            <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                        </svg>
+                        <p class="ml-4">
+                            {{$val}}
+                        </p>
+                    </li>
+                    {{end}}
+                    <!-- <li>AI Model for Data Cleansing</li>
+                    <li>AI Model for Demand Forecasting </li>
+                    <li>Collaboration tool for uplift and business strategy</li>
+                    <li>Review and mitigation action tool (if needed)</li>
+                    <li>AI Chatbot for Salesman*</li> -->
+                </ul>
             </div>
         </div>
     </div>

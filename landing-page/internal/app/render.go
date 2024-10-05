@@ -11,9 +11,30 @@ var (
 	Path   = "src/pages"
 	OutDir = "public"
 	Data   = struct {
-		SiteURL string
+		SiteURL  string
+		Problems []KV
+		Features []string
 	}{
 		SiteURL: "#",
+		Problems: []KV{
+			{"images/icon_bad_data.png", "Scattered and Unclean Data"},
+			{"images/icon_inaccurate.png", "Inaccuracy of Planning / Forecasting"},
+			{"images/icon_disaster.png", "Lack of mitigation in real-life operational"},
+		},
+		Features: []string{
+			"Data collection at store level with WhatsApp",
+			"AI Model for Data Cleansing",
+			"AI Model for Demand Forecasting",
+			"Collaboration tool for uplift and business strategy",
+			"Review and mitigation action tool (if needed)",
+		},
+	}
+)
+
+type (
+	KV struct {
+		Key   string
+		Value string
 	}
 )
 
@@ -30,7 +51,10 @@ func Render() error {
 		}
 		defer file.Close()
 		tmpl := template.Must(template.ParseFiles(v...))
-		tmpl.Execute(file, Data)
+
+		if err := tmpl.Execute(file, &Data); err != nil {
+			return err
+		}
 	}
 	return nil
 }
