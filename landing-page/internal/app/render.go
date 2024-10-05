@@ -29,7 +29,7 @@ var (
 			{"index.html", "Home"},
 			{"#", "Product Features"},
 			{"#", "Resources"},
-			{"#", "Blogs & News"},
+			{"blog.html", "Blogs & News"},
 			{"#", "About Us"},
 		},
 		Problems: []TwoFields{

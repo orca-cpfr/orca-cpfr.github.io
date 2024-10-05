@@ -10,12 +10,15 @@
     <link href="./output.css" rel="stylesheet">
 </head>
 
-<body class="overflow-y-visible">
+<body class="flex flex-col min-h-screen justify-between">
     <header>
         {{ template "_nav" .}}
     </header>
 
-    {{ template "main" .}}
+    <main class="flex-grow">
+        {{ template "main" .}}
+    </main>
+    
 
     <footer class="p-4 bg-gray-50 sm:p-6 dark:bg-gray-800">
         {{ template "_footer" .}}
