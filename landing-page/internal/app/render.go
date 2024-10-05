@@ -12,10 +12,15 @@ var (
 	OutDir = "public"
 	Data   = struct {
 		SiteURL  string
+		Meta     Meta
 		Problems []KV
 		Features []string
 	}{
 		SiteURL: "#",
+		Meta: Meta{
+			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
+			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
+		},
 		Problems: []KV{
 			{"images/icon_bad_data.png", "Scattered and Unclean Data"},
 			{"images/icon_inaccurate.png", "Inaccuracy of Planning / Forecasting"},
@@ -35,6 +40,10 @@ type (
 	KV struct {
 		Key   string
 		Value string
+	}
+	Meta struct {
+		Title       string
+		Description string
 	}
 )
 
