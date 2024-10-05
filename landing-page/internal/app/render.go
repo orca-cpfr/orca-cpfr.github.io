@@ -11,18 +11,20 @@ var (
 	Path   = "src/pages"
 	OutDir = "public"
 	Data   = struct {
-		PageName string
-		SiteURL  string
-		Meta     Meta
-		Menus    []TwoFields
-		Problems []TwoFields
-		Features []string
+		PageName     string
+		Meta         Meta
+		HomeURL      string
+		ContactUsURL string
+		Menus        []TwoFields
+		Problems     []TwoFields
+		Features     []string
 	}{
-		SiteURL: "#",
 		Meta: Meta{
 			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
+		HomeURL:      "index.html",
+		ContactUsURL: "contact-us.html",
 		Menus: []TwoFields{
 			{"index.html", "Home"},
 			{"#", "Product Features"},
