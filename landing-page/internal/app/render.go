@@ -11,9 +11,11 @@ var (
 	Path   = "src/pages"
 	OutDir = "public"
 	Data   = struct {
+		PageName string
 		SiteURL  string
 		Meta     Meta
-		Problems []KV
+		Menus    []TwoFields
+		Problems []TwoFields
 		Features []string
 	}{
 		SiteURL: "#",
@@ -21,7 +23,14 @@ var (
 			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
-		Problems: []KV{
+		Menus: []TwoFields{
+			{"index.html", "Home"},
+			{"#", "Product Features"},
+			{"#", "Resources"},
+			{"#", "Blogs & News"},
+			{"#", "About Us"},
+		},
+		Problems: []TwoFields{
 			{"images/icon_bad_data.png", "Scattered and Unclean Data"},
 			{"images/icon_inaccurate.png", "Inaccuracy of Planning / Forecasting"},
 			{"images/icon_disaster.png", "Lack of mitigation in real-life operational"},
@@ -37,9 +46,9 @@ var (
 )
 
 type (
-	KV struct {
-		Key   string
-		Value string
+	TwoFields struct {
+		Field1 string
+		Field2 string
 	}
 	Meta struct {
 		Title       string
@@ -61,7 +70,10 @@ func Render() error {
 		defer file.Close()
 		tmpl := template.Must(template.ParseFiles(v...))
 
-		if err := tmpl.Execute(file, &Data); err != nil {
+		data := Data
+		data.PageName = k
+
+		if err := tmpl.Execute(file, data); err != nil {
 			return err
 		}
 	}

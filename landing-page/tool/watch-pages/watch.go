@@ -13,6 +13,11 @@ var (
 )
 
 func main() {
+	err := app.Render()
+	if err != nil {
+		log.Println("error:", err)
+	}
+
 	// Create new watcher.
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
@@ -55,4 +60,8 @@ func main() {
 
 	// Block main goroutine forever.
 	<-make(chan struct{})
+}
+
+func PrintIfError() {
+
 }
