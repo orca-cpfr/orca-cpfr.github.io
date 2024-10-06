@@ -8,16 +8,18 @@ import (
 )
 
 var (
-	Path   = "src/pages"
+	Root   = "src/pages"
 	OutDir = "public"
 	Data   = struct {
 		PageName string
 		Meta     Meta
+		HomeURL  string
 	}{
 		Meta: Meta{
 			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
+		HomeURL: "/dashboard/index.html",
 	}
 )
 
@@ -30,12 +32,13 @@ type (
 
 func Generate() error {
 	var m map[string][]string = make(map[string][]string)
-	WalkTemplates(m, Path, []string{})
-
-	os.Mkdir(OutDir, os.ModePerm)
+	WalkTemplates(m, Root, []string{})
 
 	for k, v := range m {
-		file, err := os.Create(filepath.Join(OutDir, k))
+		path := filepath.Join(OutDir, k)
+		os.Mkdir(filepath.Dir(path), os.ModePerm)
+
+		file, err := os.Create(path)
 		if err != nil {
 			return err
 		}
@@ -67,7 +70,7 @@ func WalkTemplates(m map[string][]string, parent string, list []string) {
 				list2 := make([]string, len(list))
 				copy(list2, list)
 
-				key := fullPath[len(Path)+1:]
+				key := fullPath[len(Root)+1:]
 				m[key] = append(list2, fullPath)
 			}
 		}
