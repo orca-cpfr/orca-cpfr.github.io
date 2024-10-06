@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/orca-cpfr/orca-cpfr.github.io/landing-page/internal/generator"
+	"github.com/orca-cpfr/orca-cpfr.github.io/app/internal/generator"
 )
 
 func main() {

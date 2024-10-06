@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/orca-cpfr/orca-cpfr.github.io/landing-page/internal/app"
+	"github.com/orca-cpfr/orca-cpfr.github.io/landing-page/internal/generator"
 )
 
 var (
@@ -13,7 +13,7 @@ var (
 )
 
 func main() {
-	err := app.Render()
+	err := generator.Generate()
 	if err != nil {
 		log.Println("error:", err)
 	}
@@ -38,7 +38,7 @@ func main() {
 				if !build && !event.Has(fsnotify.Chmod) {
 					build = true
 					fmt.Println("build pages..")
-					err := app.Render()
+					err := generator.Generate()
 					if err != nil {
 						log.Println("error:", err)
 					}

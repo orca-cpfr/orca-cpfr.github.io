@@ -1,4 +1,4 @@
-module github.com/orca-cpfr/orca-cpfr.github.io/landing-page
+module github.com/orca-cpfr/orca-cpfr.github.io/app
 
 go 1.22.3
 

@@ -1,4 +1,4 @@
-package app
+package generator
 
 import (
 	"os"
@@ -127,7 +127,7 @@ type (
 	}
 )
 
-func Render() error {
+func Generate() error {
 	var m map[string][]string = make(map[string][]string)
 	WalkTemplates(m, Path, []string{})
 
