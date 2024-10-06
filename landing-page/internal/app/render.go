@@ -36,9 +36,9 @@ var (
 			{"about-us.html", "About Us"},
 		},
 		Problems: []TwoFields{
-			{"images/icon_bad_data.png", "Scattered and Unclean Data"},
-			{"images/icon_inaccurate.png", "Inaccuracy of Planning / Forecasting"},
-			{"images/icon_disaster.png", "Lack of mitigation in real-life operational"},
+			{"images/icon_bad_data.svg", "Scattered and Unclean Data"},
+			{"images/icon_inaccurate.svg", "Inaccuracy of Planning / Forecasting"},
+			{"images/icon_disaster.svg", "Lack of mitigation in real-life operational"},
 		},
 		KeyFeatures: []string{
 			"Data collection at store level with WhatsApp",
