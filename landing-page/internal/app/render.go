@@ -18,6 +18,7 @@ var (
 		Menus        []TwoFields
 		Problems     []TwoFields
 		Features     []string
+		Founders     []Founder
 	}{
 		Meta: Meta{
 			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
@@ -30,7 +31,7 @@ var (
 			{"#", "Product Features"},
 			{"#", "Resources"},
 			{"blog.html", "Blogs & News"},
-			{"#", "About Us"},
+			{"about-us.html", "About Us"},
 		},
 		Problems: []TwoFields{
 			{"images/icon_bad_data.png", "Scattered and Unclean Data"},
@@ -44,6 +45,29 @@ var (
 			"Collaboration tool for uplift and business strategy",
 			"Review and mitigation action tool (if needed)",
 		},
+		Founders: []Founder{
+			{
+				Name:        "Pelitawan Tjandrasa",
+				Title:       "CEO",
+				Description: "30+ years business leader in FMCG  & Consumer Electronics industry including Nestle, PZ Cussons, Perfetti Van Melle, Samsung & Philips.",
+				ImageURL:    "https://loremflickr.com/320/320/dog",
+				LinkedInURL: "https://www.linkedin.com/in/pelitawan-t-19178526/",
+			},
+			{
+				Name:        "Roy Djunaidi",
+				Title:       "COO / CFO",
+				Description: "6 years of Venture experience with focus on B2B corporate innovation. Working with distribution partners for freight forwarding business.",
+				ImageURL:    "https://loremflickr.com/320/320/dog",
+				LinkedInURL: "https://www.linkedin.com/in/roydjunaidi/",
+			},
+			{
+				Name:        "Iman Tunggono",
+				Title:       "CTIO",
+				Description: "14+ years of experience in software development for various industries like Ride-hailing, OTA, and Fintech.",
+				ImageURL:    "https://loremflickr.com/320/320/dog",
+				LinkedInURL: "https://www.linkedin.com/in/iman-tunggono/",
+			},
+		},
 	}
 )
 
@@ -55,6 +79,13 @@ type (
 	Meta struct {
 		Title       string
 		Description string
+	}
+	Founder struct {
+		Name        string
+		Title       string
+		Description string
+		ImageURL    string
+		LinkedInURL string
 	}
 )
 

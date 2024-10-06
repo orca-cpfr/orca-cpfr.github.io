@@ -1,0 +1,106 @@
+{{define "main"}}
+
+<section class="bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-screen-xl">
+        <img src="https://i.natgeofe.com/n/20332c5c-d149-4b2d-9f5e-d5f746644d83/NationalGeographic_2274238.jpg"
+            class="max-w-full mx-auto" alt="">
+    </div>
+</section>
+<section class="bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-8 mt-4 lg:mt-8">
+        <div class="max-w-screen-md ">
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+                About Orca-CPFR
+            </h2>
+        </div>
+        <div class="flex flex-col space-y-8">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit dictum cursus. Proin leo elit,
+                posuere sed varius venenatis, fermentum id tortor. Duis ac leo turpis. Aliquam hendrerit lectus eget
+                justo ultricies, in vestibulum turpis venenatis. Donec lacus justo, efficitur eu sollicitudin ut,
+                elementum nec urna. In vel scelerisque ante, sed molestie dui. Fusce vestibulum, quam sed sollicitudin
+                dictum, quam orci eleifend turpis, eleifend euismod lectus lectus sed urna. Cras egestas egestas ligula
+                vulputate rutrum. Proin vehicula erat eget sem scelerisque tempor. Etiam pulvinar sagittis tincidunt.
+                Aliquam commodo, est eget ultricies tincidunt, risus est auctor massa, in vulputate nibh est at leo. Ut
+                quis ex a libero condimentum tempor et in dolor. Nam cursus lectus ut massa viverra luctus. Cras
+                sollicitudin neque ut risus facilisis vestibulum.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-8 mt-4 lg:mt-8">
+        <div class="max-w-screen-md ">
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+                Philosophy
+            </h2>
+        </div>
+        <div class="flex flex-col space-y-8">
+            <p>
+                Orca (Orcinus orca), or killer whale are known for their cooperative hunting strategies. They work
+                together
+                in a highly coordinated manner to catch prey, often using specific tactics based on the type of prey and
+                location. This teamwork highlights their ability to collaborate for a shared goal.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-8 mt-4 lg:mt-8">
+        <div class="max-w-screen-md ">
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+                Founders
+            </h2>
+        </div>
+        <div class="lg:grid lg:grid-cols-3 lg:gap-4">
+            {{range .Founders}}
+            <div class="p-5 border rounded text-center text-gray-500 max-w-sm mb-4">
+                <img class="rounded-full mx-auto max-w-32" src="{{.ImageURL}}" alt="">
+                <div class="text-sm mt-5">
+                    <div class="text-2xl">{{.Name}}</div>
+                    <div>{{.Title}}</div>
+                </div>
+
+                <p class="mt-2 text-sm text-gray-900">
+                    {{.Description}}
+                </p>
+
+                <div class="flex mt-4 justify-center">
+                    <a href="{{.LinkedInURL}}">
+                        <button type="button" data-twe-ripple-init data-twe-ripple-color="light"
+                            class="mb-2 inline-block rounded bg-[#0077b5] p-3 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
+                            <span class="[&>svg]:h-4 [&>svg]:w-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
+                                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                                    <path
+                                        d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                                </svg>
+                            </span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-8 mt-4 lg:mt-8 mb-16">
+        <div class="max-w-screen-md ">
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+                Investors
+            </h2>
+        </div>
+        <div class="flex flex-row space-x-8">
+            <div class="p-4">
+                <img src="https://cdn.prod.website-files.com/62d19f82a58657afab15127b/634e9d046e47a91122da631d_antler-logo-red.svg"
+                    class="max-w-44" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
