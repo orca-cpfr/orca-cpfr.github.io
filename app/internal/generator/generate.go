@@ -19,7 +19,7 @@ var (
 			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
-		HomeURL: "/dashboard/index.html",
+		HomeURL: "/index.html",
 	}
 )
 

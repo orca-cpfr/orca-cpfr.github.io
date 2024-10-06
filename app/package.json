@@ -7,8 +7,8 @@
     "build-css": "npx postcss src/css/input.css -o public/output.css",
     "watch-page": "go run ./tool/watch-pages/*.go",
     "build-page": "go run ./tool/build-pages/*.go",
-    "watch-images": "npx cpx src/images/* public --watch",
-    "copy-images": "npx cpx src/images/* public"
+    "watch-images": "npx cpx \"src/{js,images}/*\" public --watch",
+    "copy-images": "npx cpx \"src/{js,images}/*\" public"
   },
   "dependencies": {
     "flowbite": "^1.4.7"
