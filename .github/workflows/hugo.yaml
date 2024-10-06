@@ -54,21 +54,10 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Dashboard - Build with Hugo
-        env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-          HUGO_ENVIRONMENT: production
-          TZ: America/Los_Angeles
+      - name: Dashboard - Build 
         working-directory: dashboard
         run: |
-          hugo \
-            --gc \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Dashboard - Build with NPM
-        working-directory: dashboard
-        run: |
-          npm run build:hugo
+          npm run build
       - name: Landing-Page - NPM Install
         working-directory: landing-page
         run: |
