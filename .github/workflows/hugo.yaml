@@ -69,7 +69,7 @@ jobs:
       - name: Copy landing pages
         run: cp -r landing-page/public .
       - name: prepare demo folder
-        run : mkdir -p public/demo/dashboard
+        run : mkdir -p public/demo
       - name: Copy dashboard
         run: cp -r dashboard/public public/demo/dashboard
       - name: Upload artifact
