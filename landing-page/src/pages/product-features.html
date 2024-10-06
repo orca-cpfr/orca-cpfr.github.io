@@ -7,35 +7,35 @@
         </div> 
         <script src="//unpkg.com/alpinejs"></script>
         <div x-data="{ 
-            openTab: 1,
-            activeClasses: 'border-l border-t border-r rounded-t text-blue-700',
+            openTab: 0,
+            activeClasses: 'border-l border-t border-r rounded-t text-blue-700 -mb-px',
             inactiveClasses: 'text-blue-500 hover:text-blue-700'
         }" class="">
             <ul class="flex border-b">
-                <li @click="openTab = 1" :class="{ '-mb-px': openTab === 1 }" class="-mb-px mr-1">
-                    <a href="#" :class="openTab === 1 ? activeClasses : inactiveClasses"
+                {{range $key, $item := .Products}}
+                <li @click="openTab = {{$key}}" :class="{ '': openTab === 1 }" class="mr-1">
+                    <a href="#" :class="openTab === {{$key}} ? activeClasses : inactiveClasses"
                         class="bg-white inline-block py-2 px-4 ml-2 font-semibold">
-                        WhatsApp ChatBot
+                        {{$item.Name}}
                     </a>
                 </li>
-                <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-1">
-                    <!-- Set active class by using :class provided by Alpine -->
-                    <a href="#" :class="openTab === 2 ? activeClasses : inactiveClasses"
-                        class="bg-white inline-block py-2 px-4 font-semibold">
-                        Dashboard
-                    </a>
-                </li>
-                <li @click="openTab = 3" :class="{ '-mb-px': openTab === 3 }" class="mr-1">
-                    <a href="#" :class="openTab === 3 ? activeClasses : inactiveClasses"
-                        class="bg-white inline-block py-2 px-4 font-semibold">
-                        AI Model
-                    </a>
-                </li>
+                {{end}}               
             </ul>
             <div class="w-full">
-                <div x-show="openTab === 1">Tab #1</div>
-                <div x-show="openTab === 2">Tab #2</div>
-                <div x-show="openTab === 3">Tab #3</div>
+                {{range $key, $item := .Products}}
+                <div x-show="openTab === {{$key}}" class="px-8 py-8">
+                    <div>
+                        <h3 class="text-xl">{{$item.Name}}</h3>
+                    </div>
+                    <div class="px-8 py-4">
+                        <ul class="list-disc">
+                            {{range $feat := $item.Features}}
+                            <li>{{$feat.Name}}</li>
+                            {{end}}
+                        </ul>
+                    </div>
+                </div>
+                {{end}}
             </div>
         </div>
 

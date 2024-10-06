@@ -20,6 +20,7 @@ var (
 		Problems     []TwoFields
 		KeyFeatures  []string
 		Founders     []Founder
+		Products     []Product
 	}{
 		Meta: Meta{
 			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
@@ -69,6 +70,35 @@ var (
 				LinkedInURL: "https://www.linkedin.com/in/iman-tunggono/",
 			},
 		},
+		Products: []Product{
+			{
+				Name: "WhatsApp ChatBot",
+				Features: []Feature{
+					{Name: "Find nearby store with Geotagging"},
+					{Name: "Data Collection"},
+					{Name: "Order plan"},
+					{Name: "AI Assistance"},
+				},
+			},
+			{
+				Name: "Dashboard",
+				Features: []Feature{
+					{Name: "Master Data"},
+					{Name: "Store Insight Reports"},
+					{Name: "Sales-Forecast Report"},
+					{Name: "Order-Forecast Reports"},
+					{Name: "Front-end Agreement Forms"},
+					{Name: "Join-Biz Plan Forms"},
+				},
+			},
+			{
+				Name: "AI Model",
+				Features: []Feature{
+					{Name: "Data Cleansing"},
+					{Name: "Forecasting"},
+				},
+			},
+		},
 	}
 )
 
@@ -87,6 +117,13 @@ type (
 		Description string
 		ImageURL    string
 		LinkedInURL string
+	}
+	Product struct {
+		Name     string
+		Features []Feature
+	}
+	Feature struct {
+		Name string
 	}
 )
 
