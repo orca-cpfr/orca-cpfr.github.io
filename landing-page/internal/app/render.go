@@ -15,9 +15,10 @@ var (
 		Meta         Meta
 		HomeURL      string
 		ContactUsURL string
+		ProductURL   string
 		Menus        []TwoFields
 		Problems     []TwoFields
-		Features     []string
+		KeyFeatures  []string
 		Founders     []Founder
 	}{
 		Meta: Meta{
@@ -26,10 +27,10 @@ var (
 		},
 		HomeURL:      "index.html",
 		ContactUsURL: "contact-us.html",
+		ProductURL:   "product-features.html",
 		Menus: []TwoFields{
 			{"index.html", "Home"},
-			{"#", "Product Features"},
-			{"#", "Resources"},
+			{"product-features.html", "Product Features"},
 			{"blog.html", "Blogs & News"},
 			{"about-us.html", "About Us"},
 		},
@@ -38,7 +39,7 @@ var (
 			{"images/icon_inaccurate.png", "Inaccuracy of Planning / Forecasting"},
 			{"images/icon_disaster.png", "Lack of mitigation in real-life operational"},
 		},
-		Features: []string{
+		KeyFeatures: []string{
 			"Data collection at store level with WhatsApp",
 			"AI Model for Data Cleansing",
 			"AI Model for Demand Forecasting",
