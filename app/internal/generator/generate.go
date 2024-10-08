@@ -8,14 +8,9 @@ import (
 )
 
 var (
-	Root   = "src/pages"
-	OutDir = "public"
-	Data   = struct {
-		PageName   string
-		Meta       Meta
-		HomeURL    string
-		GroupMenus []GroupMenu
-	}{
+	_Root   = "src/pages"
+	_OutDir = "public"
+	_Data   = SiteData{
 		Meta: Meta{
 			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
@@ -57,6 +52,13 @@ var (
 )
 
 type (
+	SiteData struct {
+		PageName   string
+		PageLevel  int
+		Meta       Meta
+		HomeURL    string
+		GroupMenus []GroupMenu
+	}
 	Meta struct {
 		Title       string
 		Description string
@@ -74,10 +76,10 @@ type (
 
 func Generate() error {
 	var m map[string][]string = make(map[string][]string)
-	WalkTemplates(m, Root, []string{})
+	WalkTemplates(m, _Root, []string{})
 
 	for k, v := range m {
-		path := filepath.Join(OutDir, k)
+		path := filepath.Join(_OutDir, k)
 		os.Mkdir(filepath.Dir(path), os.ModePerm)
 
 		file, err := os.Create(path)
@@ -87,8 +89,9 @@ func Generate() error {
 		defer file.Close()
 		tmpl := template.Must(template.ParseFiles(v...))
 
-		data := Data
+		data := _Data
 		data.PageName = k
+		data.PageLevel = GetPageLevel(k)
 
 		if err := tmpl.Execute(file, data); err != nil {
 			return err
@@ -112,9 +115,21 @@ func WalkTemplates(m map[string][]string, parent string, list []string) {
 				list2 := make([]string, len(list))
 				copy(list2, list)
 
-				key := fullPath[len(Root)+1:]
+				key := fullPath[len(_Root)+1:]
 				m[key] = append(list2, fullPath)
 			}
 		}
 	}
+}
+
+func GetPageLevel(pageName string) int {
+	elems := strings.Split(pageName, "/")
+	return len(elems)
+}
+
+func (s SiteData) RelativePath(path string) string {
+	for i := 1; i < s.PageLevel; i++ {
+		path = "../" + path
+	}
+	return path
 }
