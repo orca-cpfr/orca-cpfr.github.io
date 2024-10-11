@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
+	"io/fs"
 	"log"
+	"path/filepath"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/orca-cpfr/orca-cpfr.github.io/app/internal/generator"
 )
 
 var (
-	Path = "src/pages"
+	Root = "src/pages"
 )
 
 func main() {
@@ -53,15 +55,17 @@ func main() {
 		}
 	}()
 
-	err = watcher.Add(Path)
-	if err != nil {
-		log.Fatal(err)
-	}
+	filepath.WalkDir(Root, func(path string, d fs.DirEntry, err error) error {
+		if d.IsDir() {
+			err := watcher.Add(path)
+			if err != nil {
+				return err
+			}
+			fmt.Println("Add path: ", path)
+		}
+		return nil
+	})
 
 	// Block main goroutine forever.
 	<-make(chan struct{})
-}
-
-func PrintIfError() {
-
 }
