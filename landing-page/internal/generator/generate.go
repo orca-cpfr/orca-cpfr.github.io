@@ -3,8 +3,8 @@ package generator
 import (
 	"os"
 	"path/filepath"
-	"strings"
-	"text/template"
+
+	"github.com/imantung/dirtmpl"
 )
 
 var (
@@ -130,10 +130,12 @@ type (
 )
 
 func Generate() error {
-	var m map[string][]string = make(map[string][]string)
-	WalkTemplates(m, Root, []string{})
+	m, err := dirtmpl.HTMLTemplates(Root)
+	if err != nil {
+		return err
+	}
 
-	for k, v := range m {
+	for k, tmpl := range m {
 		path := filepath.Join(OutDir, k)
 		os.Mkdir(filepath.Dir(path), os.ModePerm)
 
@@ -142,7 +144,6 @@ func Generate() error {
 			return err
 		}
 		defer file.Close()
-		tmpl := template.Must(template.ParseFiles(v...))
 
 		data := Data
 		data.PageName = k
@@ -152,26 +153,4 @@ func Generate() error {
 		}
 	}
 	return nil
-}
-
-func WalkTemplates(m map[string][]string, parent string, list []string) {
-	entries, _ := os.ReadDir(parent)
-	for _, entry := range entries {
-		filename := entry.Name()
-		fullPath := filepath.Join(parent, filename)
-
-		if strings.HasPrefix(filename, "_") {
-			list = append(list, fullPath)
-		} else {
-			if entry.IsDir() {
-				WalkTemplates(m, fullPath, list)
-			} else {
-				list2 := make([]string, len(list))
-				copy(list2, list)
-
-				key := fullPath[len(Root)+1:]
-				m[key] = append(list2, fullPath)
-			}
-		}
-	}
 }
