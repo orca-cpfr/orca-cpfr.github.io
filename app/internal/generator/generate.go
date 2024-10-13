@@ -13,7 +13,7 @@ var (
 	_OutDir = "public"
 	_Data   = SiteData{
 		Meta: Meta{
-			Title:       "orca-cpfr.io | AI-Driven CPFR Platform",
+			Title:       "demand-sense.ai | Strategic Demand Planning",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
 		HomeURL: "index.html",
