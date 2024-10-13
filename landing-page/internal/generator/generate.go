@@ -8,21 +8,9 @@ import (
 )
 
 var (
-	Root   = "src/pages"
-	OutDir = "public"
-	Data   = struct {
-		PageName     string
-		Meta         Meta
-		HomeURL      string
-		ContactUsURL string
-		ProductURL   string
-		LoginURL     string
-		Menus        []TwoFields
-		Problems     []TwoFields
-		KeyFeatures  []string
-		Founders     []Founder
-		Products     []Product
-	}{
+	_Root   = "src/pages"
+	_OutDir = "public"
+	_Data   = SiteData{
 		Meta: Meta{
 			Title:       "demand-sense.ai | Strategic Demand Planning",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
@@ -105,6 +93,19 @@ var (
 )
 
 type (
+	SiteData struct {
+		PageName     string
+		Meta         Meta
+		HomeURL      string
+		ContactUsURL string
+		ProductURL   string
+		LoginURL     string
+		Menus        []TwoFields
+		Problems     []TwoFields
+		KeyFeatures  []string
+		Founders     []Founder
+		Products     []Product
+	}
 	TwoFields struct {
 		Field1 string
 		Field2 string
@@ -130,13 +131,13 @@ type (
 )
 
 func Generate() error {
-	m, err := dirtmpl.HTMLTemplates(Root)
+	m, err := dirtmpl.HTMLTemplates(_Root)
 	if err != nil {
 		return err
 	}
 
 	for k, tmpl := range m {
-		path := filepath.Join(OutDir, k)
+		path := filepath.Join(_OutDir, k)
 		os.Mkdir(filepath.Dir(path), os.ModePerm)
 
 		file, err := os.Create(path)
@@ -145,7 +146,7 @@ func Generate() error {
 		}
 		defer file.Close()
 
-		data := Data
+		data := _Data
 		data.PageName = k
 
 		if err := tmpl.Execute(file, data); err != nil {
