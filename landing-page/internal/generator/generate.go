@@ -15,10 +15,9 @@ var (
 			Title:       "demand-sense.ai | Strategic Demand Planning",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
-		HomeURL:      "index.html",
+		HomeURL:      "https://demand-sense.ai",
 		ContactUsURL: "contact-us.html",
 		ProductURL:   "product-features.html",
-		LoginURL:     "/demo/app/login.html",
 		Menus: []Menu{
 			{
 				Name: "Home",
@@ -71,30 +70,42 @@ var (
 		},
 		Products: []Product{
 			{
-				Name: "WhatsApp ChatBot",
+				Name: "Data Collection",
 				Features: []Feature{
-					{Name: "Find nearby store with Geotagging"},
-					{Name: "Data Collection"},
-					{Name: "Order plan"},
-					{Name: "AI Assistance"},
+					{Name: "Salesman Check-in/Check-out"},
+					{Name: "Stock Survey"},
+					{Name: "Merchandising Survey"},
+					{Name: "Competitor Survey"},
 				},
 			},
 			{
-				Name: "Dashboard",
+				Name: "Performance Tracking",
 				Features: []Feature{
-					{Name: "Master Data"},
-					{Name: "Store Insight Reports"},
-					{Name: "Sales-Forecast Report"},
-					{Name: "Order-Forecast Reports"},
-					{Name: "Front-end Agreement Forms"},
-					{Name: "Join-Biz Plan Forms"},
+					{Name: "Salesman Evaluation"},
+					{Name: "Store Evaluation"},
+					{Name: "Channel Evaluation"},
+					{Name: "Region Evaluation"},
 				},
 			},
 			{
-				Name: "AI Model",
+				Name: "Data Cleansing",
 				Features: []Feature{
-					{Name: "Data Cleansing"},
-					{Name: "Forecasting"},
+					{Name: "Rule-based Engine"},
+					{Name: "ML Engine"},
+				},
+			},
+			{
+				Name: "Baseline Cleaning",
+				Features: []Feature{
+					{Name: "Data Integration"},
+					{Name: "Include Macro Economy"},
+					{Name: "ML Engine"},
+				},
+			},
+			{
+				Name: "Strategic Planning",
+				Features: []Feature{
+					{Name: "Join-Business Plan"},
 				},
 			},
 		},
@@ -108,7 +119,6 @@ type (
 		HomeURL      string
 		ContactUsURL string
 		ProductURL   string
-		LoginURL     string
 		Menus        []Menu
 		Problems     []TwoFields
 		KeyFeatures  []string
