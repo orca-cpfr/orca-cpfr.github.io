@@ -54,11 +54,11 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: App - NPM install
-        working-directory: app
+      - name: Dashboard - NPM install
+        working-directory: dashboard
         run: npm install
-      - name: App - Build 
-        working-directory: app
+      - name: Dashboard - Build 
+        working-directory: dashboard
         run: npm run build
       - name: Landing-Page - NPM Install
         working-directory: landing-page
@@ -71,7 +71,7 @@ jobs:
       - name: prepare demo folder
         run : mkdir -p public/demo
       - name: Copy app
-        run: cp -r app/public public/demo/app
+        run: cp -r dashboard/public public/demo/dashboard
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

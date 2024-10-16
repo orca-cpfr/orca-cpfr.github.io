@@ -4,7 +4,7 @@
 rm -rf public
 
 # build app
-cd app
+cd dashboard
 npm install
 npm run build
 
@@ -20,7 +20,7 @@ cd ..
 # copy 
 cp -r landing-page/public .
 mkdir -p public/demo
-cp -r app/public public/demo/app
+cp -r dashboard/public public/demo/dashboard
 
 # serve 
 npx serve public
