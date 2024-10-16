@@ -19,11 +19,27 @@ var (
 		ContactUsURL: "contact-us.html",
 		ProductURL:   "product-features.html",
 		LoginURL:     "/demo/app/login.html",
-		Menus: []TwoFields{
-			{"index.html", "Home"},
-			{"product-features.html", "Product Features"},
-			{"blog.html", "Blogs & News"},
-			{"about-us.html", "About Us"},
+		Menus: []Menu{
+			{
+				Name: "Home",
+				URL:  "index.html",
+			},
+			{
+				Name: "Products",
+				URL:  "product.html",
+			},
+			{
+				Name: "Blogs & News",
+				URL:  "blog.html",
+			},
+			{
+				Name: "Contact Us",
+				URL:  "contact-us.html",
+			},
+			{
+				Name: "About",
+				URL:  "about.html",
+			},
 		},
 		Problems: []TwoFields{
 			{"images/icon_bad_data.svg", "Scattered and Unclean Data"},
@@ -31,30 +47,23 @@ var (
 			{"images/icon_disaster.svg", "Lack of mitigation in real-life operational"},
 		},
 		KeyFeatures: []string{
-			"Data collection at store level with WhatsApp",
-			"AI Model for Data Cleansing",
-			"AI Model for Demand Forecasting",
-			"Collaboration tool for uplift and business strategy",
-			"Review and mitigation action tool (if needed)",
+			"Zero-learning data collection (Whatsapp)",
+			"Tracking & Managing Performance",
+			"AI-Driven Data Cleansing",
+			"AI-Driven Baseline Forecasting",
+			"CPFR for Strategic Business Planning",
 		},
-		Founders: []Founder{
+		TeamMembers: []TeamMember{
 			{
 				Name:        "Pelitawan Tjandrasa",
-				Title:       "CEO",
+				Title:       "CEO / Co-Founder",
 				Description: "30+ years business leader in FMCG  & Consumer Electronics industry including Nestle, PZ Cussons, Perfetti Van Melle, Samsung & Philips.",
 				ImageURL:    "https://loremflickr.com/320/320/dog",
 				LinkedInURL: "https://www.linkedin.com/in/pelitawan-t-19178526/",
 			},
 			{
-				Name:        "Roy Djunaidi",
-				Title:       "COO / CFO",
-				Description: "6 years of Venture experience with focus on B2B corporate innovation. Working with distribution partners for freight forwarding business.",
-				ImageURL:    "https://loremflickr.com/320/320/dog",
-				LinkedInURL: "https://www.linkedin.com/in/roydjunaidi/",
-			},
-			{
 				Name:        "Iman Tunggono",
-				Title:       "CTIO",
+				Title:       "CTIO / Co-Founder",
 				Description: "14+ years of experience in software development for various industries like Ride-hailing, OTA, and Fintech.",
 				ImageURL:    "https://loremflickr.com/320/320/dog",
 				LinkedInURL: "https://www.linkedin.com/in/iman-tunggono/",
@@ -100,11 +109,15 @@ type (
 		ContactUsURL string
 		ProductURL   string
 		LoginURL     string
-		Menus        []TwoFields
+		Menus        []Menu
 		Problems     []TwoFields
 		KeyFeatures  []string
-		Founders     []Founder
+		TeamMembers  []TeamMember
 		Products     []Product
+	}
+	Menu struct {
+		Name string
+		URL  string
 	}
 	TwoFields struct {
 		Field1 string
@@ -114,7 +127,7 @@ type (
 		Title       string
 		Description string
 	}
-	Founder struct {
+	TeamMember struct {
 		Name        string
 		Title       string
 		Description string
