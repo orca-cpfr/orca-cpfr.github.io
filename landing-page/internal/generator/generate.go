@@ -21,10 +21,22 @@ var (
 		Menus: []Menu{
 			{Name: "Home", URL: "index.html"},
 			{
-				Name: "Products",
-				URL:  "product/data-collection.html",
+				Name: "Product",
+				SubMenus: []Menu{
+					{Name: "Data Collection", URL: "product/data-collection.html"},
+					{Name: "Performance Tracking", URL: "product/performance-tracking.html"},
+					{Name: "Predictive Analytic", URL: "product/predictive-analytic.html"},
+					{Name: "Collaborative Planning", URL: "product/collaborative-planning.html"},
+				},
 			},
-			{Name: "Blogs & News", URL: "blog.html"},
+			{Name: "Blog & News", URL: "blog.html"},
+			{
+				Name: "Demo",
+				SubMenus: []Menu{
+					{Name: "WhatsApp Demo", URL: "#"},
+					{Name: "Dashboard Demo", URL: "#"},
+				},
+			},
 			{Name: "Contact Us", URL: "contact-us.html"},
 			{Name: "About", URL: "about.html"},
 		},
@@ -142,6 +154,8 @@ func Generate() error {
 	if err != nil {
 		return err
 	}
+
+	os.Mkdir(_OutDir, os.ModePerm)
 
 	for k, tmpl := range m {
 		path := filepath.Join(_OutDir, k)
