@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	Root = "src/pages"
+	_Root = "src/pages"
 )
 
 func main() {
@@ -55,7 +55,7 @@ func main() {
 		}
 	}()
 
-	filepath.WalkDir(Root, func(path string, d fs.DirEntry, err error) error {
+	filepath.WalkDir(_Root, func(path string, d fs.DirEntry, err error) error {
 		if d.IsDir() {
 			err := watcher.Add(path)
 			if err != nil {

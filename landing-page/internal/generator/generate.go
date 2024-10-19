@@ -3,6 +3,7 @@ package generator
 import (
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/imantung/dirtmpl"
 )
@@ -12,45 +13,25 @@ var (
 	_OutDir = "public"
 	_Data   = SiteData{
 		Meta: Meta{
-			Title:       "demand-sense.ai | Strategic Demand Planning",
+			Title:       "demand-sense.ai | Strategic Demand Planning Platform",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
-		HomeURL:      "https://demand-sense.ai",
+		SiteURL:      "https://demand-sense.ai",
 		ContactUsURL: "contact-us.html",
-		ProductURL:   "product-features.html",
 		Menus: []Menu{
-			{
-				Name: "Home",
-				URL:  "index.html",
-			},
+			{Name: "Home", URL: "index.html"},
 			{
 				Name: "Products",
-				URL:  "product.html",
+				URL:  "product/data-collection.html",
 			},
-			{
-				Name: "Blogs & News",
-				URL:  "blog.html",
-			},
-			{
-				Name: "Contact Us",
-				URL:  "contact-us.html",
-			},
-			{
-				Name: "About",
-				URL:  "about.html",
-			},
+			{Name: "Blogs & News", URL: "blog.html"},
+			{Name: "Contact Us", URL: "contact-us.html"},
+			{Name: "About", URL: "about.html"},
 		},
-		Problems: []TwoFields{
-			{"images/icon_bad_data.svg", "Scattered and Unclean Data"},
-			{"images/icon_inaccurate.svg", "Inaccuracy of Planning / Forecasting"},
-			{"images/icon_disaster.svg", "Lack of mitigation in real-life operational"},
-		},
-		KeyFeatures: []string{
-			"Zero-learning data collection (Whatsapp)",
-			"Tracking & Managing Performance",
-			"AI-Driven Data Cleansing",
-			"AI-Driven Baseline Forecasting",
-			"CPFR for Strategic Business Planning",
+		Problems: []Problem{
+			{Icon: "images/icon_bad_data.svg", Name: "Scattered and Unclean Data"},
+			{Icon: "images/icon_inaccurate.svg", Name: "Inaccuracy of Planning / Forecasting"},
+			{Icon: "images/icon_disaster.svg", Name: "Lack of mitigation in real-life operational"},
 		},
 		TeamMembers: []TeamMember{
 			{
@@ -70,7 +51,9 @@ var (
 		},
 		Products: []Product{
 			{
-				Name: "Data Collection",
+				Name:    "Data Collection",
+				URL:     "product/data-collection.html",
+				Tagline: "Zero-learning data collection with Whatsapp",
 				Features: []Feature{
 					{Name: "Salesman Check-in/Check-out"},
 					{Name: "Stock Survey"},
@@ -79,7 +62,9 @@ var (
 				},
 			},
 			{
-				Name: "Performance Tracking",
+				Name:    "Performance Tracking",
+				URL:     "product/performance-tracking.html",
+				Tagline: "Tracking & Managing Performance",
 				Features: []Feature{
 					{Name: "Salesman Evaluation"},
 					{Name: "Store Evaluation"},
@@ -88,22 +73,19 @@ var (
 				},
 			},
 			{
-				Name: "Data Cleansing",
+				Name:    "Predictive Analytic",
+				URL:     "product/predictive-analytic.html",
+				Tagline: "Predictive analytics to forecast future demand",
 				Features: []Feature{
-					{Name: "Rule-based Engine"},
-					{Name: "ML Engine"},
+					{Name: "Data Cleansing"},
+					{Name: "Baseline Forecasting"},
+					{Name: "Machine Learning Algorithm"},
 				},
 			},
 			{
-				Name: "Baseline Cleaning",
-				Features: []Feature{
-					{Name: "Data Integration"},
-					{Name: "Include Macro Economy"},
-					{Name: "ML Engine"},
-				},
-			},
-			{
-				Name: "Strategic Planning",
+				Name:    "Collaborative Planning",
+				URL:     "product/collaborative-planning.html",
+				Tagline: "CPFR for Strategic Business Planning",
 				Features: []Feature{
 					{Name: "Join-Business Plan"},
 				},
@@ -114,24 +96,24 @@ var (
 
 type (
 	SiteData struct {
+		SiteURL      string
 		PageName     string
+		PageLevel    int
 		Meta         Meta
-		HomeURL      string
 		ContactUsURL string
-		ProductURL   string
 		Menus        []Menu
-		Problems     []TwoFields
-		KeyFeatures  []string
+		Problems     []Problem
 		TeamMembers  []TeamMember
 		Products     []Product
 	}
 	Menu struct {
-		Name string
-		URL  string
+		Name     string
+		URL      string
+		SubMenus []Menu
 	}
-	TwoFields struct {
-		Field1 string
-		Field2 string
+	Problem struct {
+		Name string
+		Icon string
 	}
 	Meta struct {
 		Title       string
@@ -146,6 +128,8 @@ type (
 	}
 	Product struct {
 		Name     string
+		URL      string
+		Tagline  string
 		Features []Feature
 	}
 	Feature struct {
@@ -171,10 +155,23 @@ func Generate() error {
 
 		data := _Data
 		data.PageName = k
+		data.PageLevel = GetPageLevel(k)
 
 		if err := tmpl.Execute(file, data); err != nil {
 			return err
 		}
 	}
 	return nil
+}
+
+func GetPageLevel(pageName string) int {
+	elems := strings.Split(pageName, "/")
+	return len(elems)
+}
+
+func (s SiteData) RelativePath(path string) string {
+	for i := 1; i < s.PageLevel; i++ {
+		path = "../" + path
+	}
+	return path
 }
