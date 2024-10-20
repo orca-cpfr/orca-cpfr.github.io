@@ -158,8 +158,7 @@
                                 <a class="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
                                     href="#">
                                     <p class="text-sm">
-                                        <span class="text-black dark:text-white">There are many
-                                            variations</span>
+                                        <span class="text-black dark:text-white">There are many variations</span>
                                         of passages of Lorem Ipsum available, but the majority have
                                         suffered
                                     </p>
@@ -180,13 +179,14 @@
             <div class="relative" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
                 <a class="flex items-center gap-4" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
                     <span class="hidden text-right lg:block">
-                        <span class="block text-sm font-medium text-black dark:text-white">Thomas
-                            Anree</span>
-                        <span class="block text-xs font-medium">UX Designer</span>
+                        <span class="block text-sm font-medium text-black dark:text-white">
+                            {{.UserProfile.Name}}
+                        </span>
+                        <span class="block text-xs font-medium">{{.UserProfile.JobTitle}}</span>
                     </span>
 
                     <span class="h-12 w-12 rounded-full">
-                        <img src="images/user/user-01.png" alt="User" />
+                        <img src="{{.UserProfile.PicURL}}" alt="User" class="rounded-full" />
                     </span>
 
                     <svg :class="dropdownOpen && 'rotate-180'" class="hidden fill-current sm:block" width="12"

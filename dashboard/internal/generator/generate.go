@@ -19,6 +19,14 @@ var (
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
 		},
 		HomeURL: "index.html",
+		UserProfile: UserProfile{
+			Name:     "John Doe",
+			JobTitle: "Sales Manager",
+			PicURL:   "https://xsgames.co/randomusers/avatar.php?g=male",
+		},
+		CompanyProfile: CompanyProfile{
+			Name: "XYZ Lte.",
+		},
 		GroupMenus: []GroupMenu{
 			{
 				Name: "MAIN DASHBOARD",
@@ -100,13 +108,15 @@ var (
 
 type (
 	SiteData struct {
-		SiteURL    string
-		PageName   string
-		PageLevel  int
-		Meta       Meta
-		HomeURL    string
-		GroupMenus []GroupMenu
-		HomePage   HomePage
+		SiteURL        string
+		PageName       string
+		PageLevel      int
+		UserProfile    UserProfile
+		CompanyProfile CompanyProfile
+		Meta           Meta
+		HomeURL        string
+		GroupMenus     []GroupMenu
+		HomePage       HomePage
 	}
 	Meta struct {
 		Title       string
@@ -130,6 +140,14 @@ type (
 		ValuePercentage string
 		PositiveValue   bool
 		Icon            template.HTML
+	}
+	UserProfile struct {
+		Name     string
+		JobTitle string
+		PicURL   string
+	}
+	CompanyProfile struct {
+		Name string
 	}
 )
 
