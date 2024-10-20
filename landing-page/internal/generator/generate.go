@@ -34,7 +34,7 @@ var (
 				Name: "Demo",
 				SubMenus: []Menu{
 					{Name: "WhatsApp Demo", URL: "#"},
-					{Name: "Dashboard Demo", URL: "#"},
+					{Name: "Dashboard Demo", URL: "demo/dashboard/index.html"},
 				},
 			},
 			{Name: "Contact Us", URL: "contact-us.html"},
