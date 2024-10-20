@@ -51,42 +51,42 @@ var (
 				Name: "MAIN DASHBOARD",
 				Menus: []Menu{
 					{Name: "Home", URL: "#", Icon: SvgHome},
-					{Name: "User Controls", URL: "#", Icon: SvgUsers},
-					{Name: "Billings", URL: "#", Icon: SvgUsers},
+					{Name: "User Controls", URL: "#", Icon: SvgUsers, Hide: true},
+					{Name: "Billings", URL: "#", Icon: SvgUsers, Hide: true},
 				},
 			},
 			{
 				Name: "MASTER DATA",
 				Menus: []Menu{
 					{Name: "Master Distributor", URL: "#", Icon: SvgTable},
-					{Name: "Master Store", URL: "#", Icon: SvgTable},
-					{Name: "Master Salesman", URL: "#", Icon: SvgTable},
-					{Name: "Master Product", URL: "#", Icon: SvgTable},
-					{Name: "Master Campaign", URL: "#", Icon: SvgTable},
+					{Name: "Master Store", URL: "#", Icon: SvgTable, Hide: true},
+					{Name: "Master Salesman", URL: "#", Icon: SvgTable, Hide: true},
+					{Name: "Master Product", URL: "#", Icon: SvgTable, Hide: true},
+					{Name: "Master Campaign", URL: "#", Icon: SvgTable, Hide: true},
 				},
 			},
 			{
 				Name: "PERFORMANCE TRACKER",
 				Menus: []Menu{
 					{Name: "Salesman Evaluation", URL: "#", Icon: SvgPie},
-					{Name: "Store Evaluation", URL: "#", Icon: SvgPie},
-					{Name: "Merchandising Evaluation", URL: "#", Icon: SvgPie},
-					{Name: "Competitor Evaluation", URL: "#", Icon: SvgPie},
+					{Name: "Store Evaluation", URL: "#", Icon: SvgPie, Hide: true},
+					{Name: "Merchandising Evaluation", URL: "#", Icon: SvgPie, Hide: true},
+					{Name: "Competitor Evaluation", URL: "#", Icon: SvgPie, Hide: true},
 				},
 			},
 			{
 				Name: "ANALYTICS PLATFORM",
 				Menus: []Menu{
 					{Name: "Data Cleansing", URL: "#", Icon: SvgLab},
-					{Name: "Baseline Forecasting", URL: "#", Icon: SvgLab},
+					{Name: "Baseline Forecasting", URL: "#", Icon: SvgLab, Hide: true},
 				},
 			},
 			{
 				Name: "COLLABORATIVE PLANNING",
 				Menus: []Menu{
 					{Name: "Sales Forecasting", URL: "#", Icon: SvgInsight},
-					{Name: "Order Forecasting", URL: "#", Icon: SvgInsight},
-					{Name: "Join Business Plan", URL: "#", Icon: SvgPresentation},
+					{Name: "Order Forecasting", URL: "#", Icon: SvgInsight, Hide: true},
+					{Name: "Join Business Plan", URL: "#", Icon: SvgPresentation, Hide: true},
 				},
 			},
 		},
@@ -168,6 +168,7 @@ type (
 		Name string
 		URL  string
 		Icon template.HTML
+		Hide bool
 	}
 	HomePage struct {
 		Summaries []CardSummary

@@ -32,16 +32,14 @@
             {{range $group := .GroupMenus}}
             <div>
                 <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{$group.Name}}</h3>
-                <ul class="mb-6 flex flex-col gap-1 text-sm">
-                    {{range $menu := $group.Menus}}
-                    <li>
+                <ul class="mb-6 flex flex-col gap-1 text-sm">{{range $group.Menus}}
+                    <li class="{{if .Hide}}blur-sm{{end}}">
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-                            href="{{$menu.URL}}">
-                            <div class="w-6">{{$menu.Icon}}</div>
-                            {{$menu.Name}}
+                            href="{{.URL}}">
+                            <div class="w-6">{{.Icon}}</div>
+                            {{.Name}}
                         </a>
-                    </li>
-                    {{end}}
+                    </li>{{end}}
                 </ul>
             </div>
             {{end}}
