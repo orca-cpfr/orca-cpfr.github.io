@@ -33,8 +33,8 @@ var (
 			{
 				Name: "Demo",
 				SubMenus: []Menu{
-					{Name: "WhatsApp Demo", URL: "#"},
-					{Name: "Dashboard Demo", URL: "demo/dashboard/index.html"},
+					{Name: "WhatsApp Demo", URL: "demo/whatsapp/"},
+					{Name: "Dashboard Demo", URL: "demo/dashboard/"},
 				},
 			},
 			{Name: "About", URL: "about.html"},
