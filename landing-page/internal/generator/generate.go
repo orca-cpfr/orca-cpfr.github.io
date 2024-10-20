@@ -37,7 +37,6 @@ var (
 					{Name: "Dashboard Demo", URL: "demo/dashboard/index.html"},
 				},
 			},
-			{Name: "Contact Us", URL: "contact-us.html"},
 			{Name: "About", URL: "about.html"},
 		},
 		Problems: []Problem{
