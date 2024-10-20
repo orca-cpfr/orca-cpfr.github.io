@@ -19,15 +19,22 @@
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
 
+    <div class=" h-screen overflow-hidden">
+
+    <div class="text-center py-1 bg-red-600 text-white text-xs">
+        This is dashboard demo for <a href="{{.SiteURL}}" class="font-extrabold no-underline hover:underline">demand-sense.ai</a>
+    </div>
+
     {{template "_preloader" . }}
 
-    <div class="flex h-screen overflow-hidden">
+    <div class="flex">
         {{template "_sidebar" .}}
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             {{template "_header" .}}
             {{template "main". }}
         </div>
     </div>
+</div>
     <script defer src="{{ .RelativePath "js/bundle.js"}}"></script>
 </body>
 
