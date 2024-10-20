@@ -1,11 +1,18 @@
 {{define "_sidebar"}}
 <!-- ===== Sidebar Start ===== -->
 <aside :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
-    class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+    class="absolute left-0 top-0 z-9999 flex h-screen w-80 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
     @click.outside="sidebarToggle = false">
     <!-- SIDEBAR HEADER -->
     <div class="flex items-center justify-between gap-2 px-6 py-5">
-        <h2 class="text-white text-center font-bold text-2xl">XYZ Lte.</h2>
+        <div class="w-full">
+            <div>
+                <h2 class="text-white font-bold text-3xl">XYZ Lte.</h2>
+            </div>
+            <div class="text-gray text-xs">
+                Powered by <a href="{{.SiteURL}}" class="no-underline hover:underline">demand-sense.ai</a> 
+            </div>
+        </div>
 
         <button class="block lg:hidden" @click.stop="sidebarToggle = !sidebarToggle">
             <svg class="fill-current" width="20" height="18" viewBox="0 0 20 18" fill="none"
@@ -18,21 +25,19 @@
     </div>
     <!-- SIDEBAR HEADER -->
 
-    <div class="no-scrollbar flex flex-grow flex-col overflow-y-auto duration-300 ease-linear">
+    <div class="flex flex-grow flex-col overflow-y-auto duration-300 ease-linear">
         <!-- Sidebar Menu -->
-        <nav class="mt-5 px-4 py-4 lg:mt-4 lg:px-6" x-data="{selected: $persist('Dashboard')}">
+        <nav class="mt-5 px-4 lg:mt-4 lg:px-6" x-data="{selected: $persist('Dashboard')}">
             <!-- Menu Group -->
             {{range $group := .GroupMenus}}
             <div>
                 <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{$group.Name}}</h3>
-                <ul class="mb-6 flex flex-col gap-1.5">
+                <ul class="mb-6 flex flex-col gap-1 text-sm">
                     {{range $menu := $group.Menus}}
                     <li>
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
                             href="{{$menu.URL}}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                {{$menu.Icon}}
-                            </svg>
+                            <div class="w-6">{{$menu.Icon}}</div>
                             {{$menu.Name}}
                         </a>
                     </li>
@@ -40,15 +45,11 @@
                 </ul>
             </div>
             {{end}}
+
         </nav>
         <!-- Sidebar Menu -->
     </div>
 
-    <div class="max-w-full py-2">
-        <div class="text-center text-gray text-xs">
-            Powered by demand-sense.ai
-        </div>
-    </div>
 </aside>
 <!-- ===== Sidebar End ===== -->
 {{end}}

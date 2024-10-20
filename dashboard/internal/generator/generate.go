@@ -13,6 +13,7 @@ var (
 	_Root   = "src/pages"
 	_OutDir = "public"
 	_Data   = SiteData{
+		SiteURL: "https://demand-sense.ai",
 		Meta: Meta{
 			Title:       "demand-sense.ai | Strategic Demand Planning",
 			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
@@ -20,33 +21,45 @@ var (
 		HomeURL: "index.html",
 		GroupMenus: []GroupMenu{
 			{
-				Name: "PRINCIPAL",
+				Name: "MAIN DASHBOARD",
+				Menus: []Menu{
+					{Name: "Home", URL: "#", Icon: SvgHome},
+					{Name: "User Controls", URL: "#", Icon: SvgUsers},
+					{Name: "Billings", URL: "#", Icon: SvgUsers},
+				},
+			},
+			{
+				Name: "MASTER DATA",
 				Menus: []Menu{
 					{Name: "Master Distributor", URL: "#", Icon: SvgTable},
-					{Name: "Store Reports", URL: "#", Icon: SvgPie},
-					{Name: "Order Forecasting", URL: "#", Icon: SvgInsight},
-					{Name: "Sales Forecasting", URL: "#", Icon: SvgInsight},
-					{Name: "Principal Inventory", URL: "#", Icon: SvgBox},
-				},
-			},
-			{
-				Name: "DISTRIBUTOR",
-				Menus: []Menu{
-					{Name: "Master Salesman", URL: "#", Icon: SvgTable},
 					{Name: "Master Store", URL: "#", Icon: SvgTable},
-					{Name: "Salesman Reports", URL: "#", Icon: SvgPie},
-					{Name: "Distributor Inventory", URL: "#", Icon: SvgBox},
-					{Name: "Distributor Replenishment", URL: "#", Icon: SvgBox},
-					{Name: "Store Replenishment", URL: "#", Icon: SvgBox},
+					{Name: "Master Salesman", URL: "#", Icon: SvgTable},
+					{Name: "Master Product", URL: "#", Icon: SvgTable},
+					{Name: "Master Campaign", URL: "#", Icon: SvgTable},
 				},
 			},
 			{
-				Name: "SALESMAN",
+				Name: "PERFORMANCE TRACKER",
 				Menus: []Menu{
-					{Name: "Find Nearby Store", URL: "#", Icon: SvgDevice},
-					{Name: "Survey Store", URL: "#", Icon: SvgDevice},
-					{Name: "Order Proposal", URL: "#", Icon: SvgDevice},
-					{Name: "Salesman Activity Logs", URL: "#", Icon: SvgPie},
+					{Name: "Salesman Evaluation", URL: "#", Icon: SvgPie},
+					{Name: "Store Evaluation", URL: "#", Icon: SvgPie},
+					{Name: "Merchandising Evaluation", URL: "#", Icon: SvgPie},
+					{Name: "Competitor Evaluation", URL: "#", Icon: SvgPie},
+				},
+			},
+			{
+				Name: "ANALYTICS PLATFORM",
+				Menus: []Menu{
+					{Name: "Data Cleansing", URL: "#", Icon: SvgLab},
+					{Name: "Baseline Forecasting", URL: "#", Icon: SvgLab},
+				},
+			},
+			{
+				Name: "COLLABORATIVE PLANNING",
+				Menus: []Menu{
+					{Name: "Sales Forecasting", URL: "#", Icon: SvgInsight},
+					{Name: "Order Forecasting", URL: "#", Icon: SvgInsight},
+					{Name: "Join Business Plan", URL: "#", Icon: SvgPresentation},
 				},
 			},
 		},
@@ -87,6 +100,7 @@ var (
 
 type (
 	SiteData struct {
+		SiteURL    string
 		PageName   string
 		PageLevel  int
 		Meta       Meta
