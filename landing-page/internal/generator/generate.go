@@ -25,7 +25,7 @@ var (
 				SubMenus: []Menu{
 					{Name: "Data Collection", URL: "product/data-collection.html"},
 					{Name: "Performance Tracking", URL: "product/performance-tracking.html"},
-					{Name: "Predictive Analytic", URL: "product/predictive-analytic.html"},
+					{Name: "Analytics Platform", URL: "product/analytics-platform.html"},
 					{Name: "Collaborative Planning", URL: "product/collaborative-planning.html"},
 				},
 			},
@@ -85,13 +85,14 @@ var (
 				},
 			},
 			{
-				Name:    "Predictive Analytic",
-				URL:     "product/predictive-analytic.html",
-				Tagline: "Predictive analytics to forecast future demand",
+				Name:    "Analytics Platform",
+				URL:     "product/analytics-platform.html",
+				Tagline: "Advanced analytics to forecast future demand",
 				Features: []Feature{
 					{Name: "Data Cleansing"},
 					{Name: "Baseline Forecasting"},
 					{Name: "Machine Learning Algorithm"},
+					{Name: "AI Predictive Model"},
 				},
 			},
 			{
