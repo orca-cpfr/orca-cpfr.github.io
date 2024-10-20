@@ -22,11 +22,15 @@
     "typescript-eslint": "^8.3.0"
   },
   "scripts": {
-    "start": "concurrently npm:watch-css npm:watch-js npm:watch-page npm:serve",
+    "start": "concurrently npm:watch-css npm:watch-js npm:watch-pages npm:serve",
+    "build": "concurrently npm:build-css npm:build-js npm:build-pages",    
     "serve": "npx serve public",
     "watch-css": "npx postcss src/css/input.css -o public/styles/output.css -w",
     "watch-js": "npx esbuild src/ts/*.ts --bundle --sourcemap=inline --outdir=public/js --watch",
-    "watch-page": "npx cpx \"src/page/**/*\" public --watch"
+    "watch-pages": "npx cpx \"src/page/**/*\" public --watch",
+    "build-css": "npx postcss src/css/input.css -o public/styles/output.css",
+    "build-js": "npx esbuild src/ts/*.ts --bundle --sourcemap=inline --outdir=public/js",
+    "build-pages": "npx cpx \"src/page/**/*\" public"
   },
   "type": "module"
 }

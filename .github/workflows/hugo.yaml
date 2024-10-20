@@ -66,12 +66,20 @@ jobs:
       - name: Landing-Page - Build
         working-directory: landing-page
         run: npm run build
+      - name: WhatsApp - NPM Install
+        working-directory: whatsapp
+        run: npm install
+      - name: WhatsApp - Build
+        working-directory: whatsapp
+        run: npm run build
       - name: Copy landing pages
         run: cp -r landing-page/public .
       - name: prepare demo folder
         run : mkdir -p public/demo
-      - name: Copy app
+      - name: Copy dashboard
         run: cp -r dashboard/public public/demo/dashboard
+      - name: Copy whatsapp
+        run: cp -r whatsapp/public public/demo/whatsapp
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
