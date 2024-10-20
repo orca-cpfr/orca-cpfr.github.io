@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 border-2 border-primary-950 shadow appearance-none bg-primary-600 text-primary-50;
+
+    &:hover {
+      @apply bg-primary-400;
+    }
+    &:focus {
+      @apply outline-none;
+    }
+  }
+
+  .textbox {
+    @apply shadow appearance-none border-2 rounded py-2 px-3 leading-tight outline-none;
+  }
+}
