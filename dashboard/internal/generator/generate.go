@@ -27,6 +27,25 @@ var (
 		CompanyProfile: CompanyProfile{
 			Name: "XYZ Lte.",
 		},
+		Notifications: []Notification{
+			{
+				Message: "Edit your information in a swipe Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+				Date:    "12 May, 2025",
+			},
+			{
+				Message: "It is a long established fact that a reader will be distracted by the readable.",
+				Date:    "24 Feb, 2025",
+			},
+			{
+				Message: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered",
+				Date:    "04 Jan, 2025",
+			},
+			{
+				Message: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered",
+				Date:    "01 Dec, 2024",
+			},
+		},
+
 		GroupMenus: []GroupMenu{
 			{
 				Name: "MAIN DASHBOARD",
@@ -113,6 +132,7 @@ type (
 		PageLevel      int
 		UserProfile    UserProfile
 		CompanyProfile CompanyProfile
+		Notifications  []Notification
 		Meta           Meta
 		HomeURL        string
 		GroupMenus     []GroupMenu
@@ -148,6 +168,10 @@ type (
 	}
 	CompanyProfile struct {
 		Name string
+	}
+	Notification struct {
+		Message string
+		Date    string
 	}
 )
 
