@@ -14,29 +14,29 @@ var (
 	_Data   = SiteData{
 		Meta: Meta{
 			Title:       "demand-sense.ai | Strategic Demand Planning Platform",
-			Description: "AI-Driven Platform for Reliable Strategic Planning, and Operational Mitigation Actions with Zero Learning",
+			Description: "Your reliable AI-driven solution on strategic business planning",
 		},
 		SiteURL:      "https://demand-sense.ai",
 		ContactUsURL: "contact-us.html",
 		Menus: []Menu{
 			{Name: "Home", URL: "index.html"},
-			{
-				Name: "Product",
-				SubMenus: []Menu{
-					{Name: "Data Collection", URL: "product/data-collection.html"},
-					{Name: "Performance Tracking", URL: "product/performance-tracking.html"},
-					{Name: "Analytics Platform", URL: "product/analytics-platform.html"},
-					{Name: "Collaborative Planning", URL: "product/collaborative-planning.html"},
-				},
-			},
-			{Name: "Blog & News", URL: "blog.html"},
-			{
-				Name: "Demo",
-				SubMenus: []Menu{
-					{Name: "WhatsApp Demo", URL: "demo/whatsapp/"},
-					{Name: "Dashboard Demo", URL: "demo/dashboard/"},
-				},
-			},
+			// {
+			// 	Name: "Product",
+			// 	SubMenus: []Menu{
+			// 		{Name: "Sales Ops WhatsApp", URL: "product/data-collection.html"},
+			// 		{Name: "Performance Tracking", URL: "product/performance-tracking.html"},
+			// 		{Name: "Baseline Cleansing & Forecasting", URL: "product/analytics-platform.html"},
+			// 		{Name: "Collaborative Planning", URL: "product/collaborative-planning.html"},
+			// 	},
+			// },
+			// {Name: "Blog & News", URL: "blog.html"},
+			// {
+			// 	Name: "Demo",
+			// 	SubMenus: []Menu{
+			// 		{Name: "WhatsApp Demo", URL: "demo/whatsapp/"},
+			// 		{Name: "Dashboard Demo", URL: "demo/dashboard/"},
+			// 	},
+			// },
 			{Name: "About", URL: "about.html"},
 		},
 		Problems: []Problem{
@@ -62,9 +62,9 @@ var (
 		},
 		Products: []Product{
 			{
-				Name:    "Data Collection",
+				Name:    "Sales Ops Whatsapp",
 				URL:     "product/data-collection.html",
-				Tagline: "Zero-learning data collection with Whatsapp",
+				Tagline: "Sales Ops Whatsapp with zero-learning",
 				Features: []Feature{
 					{Name: "Salesman Check-in/Check-out"},
 					{Name: "Stock Survey"},
@@ -84,9 +84,9 @@ var (
 				},
 			},
 			{
-				Name:    "Analytics Platform",
+				Name:    "Baseline Cleansing & Forecasting",
 				URL:     "product/analytics-platform.html",
-				Tagline: "Advanced analytics to forecast future demand",
+				Tagline: "Intellegence data cleansing and advanced forecasting analytics",
 				Features: []Feature{
 					{Name: "Data Cleansing"},
 					{Name: "Baseline Forecasting"},
@@ -95,11 +95,11 @@ var (
 				},
 			},
 			{
-				Name:    "Collaborative Planning",
-				URL:     "product/collaborative-planning.html",
-				Tagline: "CPFR for Strategic Business Planning",
+				Name:     "Collaborative Process for Strategic Business Planning",
+				URL:      "product/collaborative-planning.html",
+				Tagline:  "Collaborative Process for Strategic Business Planning",
 				Features: []Feature{
-					{Name: "Join-Business Plan"},
+					// {Name: "Join-Business Plan"},
 				},
 			},
 		},

@@ -68,25 +68,17 @@ var (
 			{
 				Name: "PERFORMANCE TRACKER",
 				Menus: []Menu{
-					{Name: "Salesman Evaluation", URL: "#", Icon: SvgPie},
-					{Name: "Store Evaluation", URL: "#", Icon: SvgPie, Hide: true},
-					{Name: "Merchandising Evaluation", URL: "#", Icon: SvgPie, Hide: true},
-					{Name: "Competitor Evaluation", URL: "#", Icon: SvgPie, Hide: true},
-				},
-			},
-			{
-				Name: "ANALYTICS PLATFORM",
-				Menus: []Menu{
-					{Name: "Data Cleansing", URL: "#", Icon: SvgLab},
-					{Name: "Baseline Forecasting", URL: "#", Icon: SvgLab, Hide: true},
+					{Name: "Daily Evaluation", URL: "#", Icon: SvgPie},
+					{Name: "Monthly Evaluation", URL: "#", Icon: SvgPie, Hide: true},
+					{Name: "Annual Evaluation", URL: "#", Icon: SvgPie, Hide: true},
 				},
 			},
 			{
 				Name: "COLLABORATIVE PLANNING",
 				Menus: []Menu{
-					{Name: "Sales Forecasting", URL: "#", Icon: SvgInsight},
-					{Name: "Order Forecasting", URL: "#", Icon: SvgInsight, Hide: true},
-					{Name: "Join Business Plan", URL: "#", Icon: SvgPresentation, Hide: true},
+					{Name: "Sales Data", URL: "#", Icon: SvgInsight},
+					{Name: "Baseline Forecasting", URL: "#", Icon: SvgInsight, Hide: true},
+					{Name: "Sales Planning", URL: "#", Icon: SvgPresentation, Hide: true},
 				},
 			},
 		},
